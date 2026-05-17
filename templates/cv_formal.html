@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10pt;
+    color: #000;
+    background: #fff;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 18mm 18mm 15mm 18mm;
+  }
+
+  /* HEADER — very formal, fully centred */
+  .header {
+    text-align: center;
+    margin-bottom: 6mm;
+    padding-bottom: 4mm;
+    border-bottom: 3px double #000;
+  }
+
+  .name {
+    font-size: 20pt;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .role-label {
+    font-size: 10pt;
+    color: #222;
+    margin-top: 2mm;
+    font-style: italic;
+  }
+
+  .contact-row {
+    font-size: 9pt;
+    color: #333;
+    margin-top: 3mm;
+  }
+
+  .contact-row .divider { margin: 0 4mm; color: #999; }
+
+  /* SECTION */
+  .section { margin-bottom: 5mm; }
+
+  .section-title {
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    border-top: 1.5px solid #000;
+    border-bottom: 1.5px solid #000;
+    padding: 1.5mm 0;
+    margin-bottom: 3.5mm;
+  }
+
+  /* SUMMARY */
+  .summary {
+    font-size: 10pt;
+    color: #000;
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  /* SKILLS — formal table layout */
+  .skills-table { width: 100%; border-collapse: collapse; border: 1px solid #ccc; }
+  .skills-table td {
+    vertical-align: top;
+    padding: 2mm 3mm;
+    font-size: 9pt;
+    width: 50%;
+    border: 1px solid #ccc;
+  }
+  .skill-group-label { font-weight: bold; color: #000; }
+  .skill-values { color: #222; }
+
+  /* ACHIEVEMENTS */
+  .achievements-table { width: 100%; border-collapse: collapse; }
+  .achievements-table td { width: 50%; vertical-align: top; padding: 2mm 2mm 2mm 0; }
+
+  .achievement-item {
+    border: 1px solid #ccc;
+    padding: 2mm 3mm;
+    font-size: 9pt;
+    line-height: 1.4;
+    margin-right: 2mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1mm;
+    font-weight: bold;
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 5mm; }
+
+  .job-header-table { width: 100%; border-collapse: collapse; margin-bottom: 0.5mm; }
+  .job-header-table td { vertical-align: top; padding: 0; }
+
+  .job-title {
+    font-size: 10.5pt;
+    font-weight: bold;
+    color: #000;
+    font-family: "Times New Roman", Times, serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .job-date {
+    font-size: 9pt;
+    color: #333;
+    text-align: right;
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  .job-org {
+    font-size: 9.5pt;
+    color: #333;
+    margin-bottom: 2mm;
+    font-weight: bold;
+  }
+
+  .job ul { list-style: none; padding-left: 0; }
+  .job ul li {
+    font-size: 9.5pt;
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 1.5mm;
+    padding-left: 6mm;
+    text-indent: -6mm;
+    text-align: justify;
+  }
+  .job ul li::before { content: "(i)  "; color: #000; font-size: 8.5pt; font-style: italic; }
+
+  /* EDUCATION */
+  .edu-block {
+    margin-bottom: 4mm;
+    padding-bottom: 3mm;
+    border-bottom: 1px solid #ddd;
+  }
+  .edu-block:last-child { border-bottom: none; }
+
+  .edu-header-table { width: 100%; border-collapse: collapse; }
+  .edu-header-table td { vertical-align: top; padding: 0; }
+
+  .edu-degree { font-size: 10pt; font-weight: bold; color: #000; text-transform: uppercase; }
+  .edu-school { font-size: 9.5pt; color: #333; font-style: italic; }
+  .edu-year { font-size: 9pt; color: #555; text-align: right; white-space: nowrap; }
+
+  /* LANGUAGES */
+  .lang-table { width: 100%; border-collapse: collapse; }
+  .lang-table td { padding: 1.5mm 3mm; font-size: 9.5pt; border: 1px solid #eee; }
+  .lang-name { font-weight: bold; }
+  .lang-level { color: #333; font-style: italic; }
+
+  /* DECLARATION — standard for public sector Ghana */
+  .declaration {
+    margin-top: 8mm;
+    padding-top: 5mm;
+    border-top: 1px solid #000;
+    font-size: 9pt;
+    font-style: italic;
+    color: #333;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="name">{{NAME}}</div>
+    <div class="role-label">{{ROLE_LABEL}}</div>
+    <div class="contact-row">{{CONTACT_ROW}}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personal Statement</div>
+    <div class="summary">{{SUMMARY}}</div>
+  </div>
+
+  {{ACHIEVEMENTS_BLOCK}}
+  {{SKILLS_BLOCK}}
+
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+    {{EXPERIENCE_BLOCK}}
+  </div>
+
+  {{EDUCATION_BLOCK}}
+  {{LANGUAGES_BLOCK}}
+
+  <div class="declaration">
+    I hereby declare that the information provided in this curriculum vitae is true and accurate to the best of my knowledge.
+  </div>
+
+  {{EXTRA_SECTIONS}}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { width: 210mm; min-height: 297mm; padding: 12mm 14mm; }
+
+  /* HEADER — clean, airy */
+  .header {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 6mm;
+    padding-bottom: 5mm;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .header-left { display: table-cell; vertical-align: top; }
+  .header-right { display: table-cell; vertical-align: top; text-align: right; width: 60mm; }
+
+  .name {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .role-label {
+    font-size: 9.5pt;
+    color: #777;
+    margin-top: 2mm;
+  }
+
+  .contact-item { font-size: 8pt; color: #666; margin-bottom: 1.5mm; text-align: right; }
+
+  /* SECTION */
+  .section { margin-bottom: 5.5mm; }
+
+  .section-title {
+    font-size: 7pt;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 3mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .summary { font-size: 9.5pt; color: #444; line-height: 1.7; }
+
+  /* Skills — inline, very clean */
+  .skills-row {
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 2mm;
+    line-height: 1.6;
+  }
+
+  .skill-label { font-weight: bold; color: #1a1a1a; }
+
+  /* Achievements */
+  .achievements-table { width: 100%; border-collapse: collapse; }
+  .achievements-table td { width: 50%; vertical-align: top; padding: 2mm 2mm 2mm 0; }
+
+  .achievement-item {
+    border-top: 2px solid #1a1a1a;
+    padding: 2mm 0 0 0;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    margin-right: 3mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #999;
+    margin-bottom: 1mm;
+  }
+
+  /* Experience */
+  .job { margin-bottom: 4.5mm; padding-bottom: 4mm; border-bottom: 1px solid #f0f0f0; }
+  .job:last-child { border-bottom: none; }
+
+  .job-header-table { width: 100%; border-collapse: collapse; }
+  .job-header-table td { vertical-align: top; padding: 0; }
+
+  .job-title { font-size: 10.5pt; font-weight: bold; color: #1a1a1a; }
+  .job-date { font-size: 7.5pt; color: #999; text-align: right; white-space: nowrap; }
+  .job-org { font-size: 8.5pt; color: #777; margin-bottom: 2mm; }
+
+  .job ul { list-style: none; padding-left: 0; }
+  .job ul li {
+    font-size: 8.5pt; color: #444; line-height: 1.55;
+    margin-bottom: 1.2mm; padding-left: 4mm; text-indent: -4mm;
+  }
+  .job ul li::before { content: "– "; color: #bbb; }
+
+  /* Education */
+  .edu-block { margin-bottom: 3mm; display: table; width: 100%; }
+  .edu-left { display: table-cell; vertical-align: top; }
+  .edu-right { display: table-cell; vertical-align: top; text-align: right; white-space: nowrap; }
+  .edu-degree { font-size: 9.5pt; font-weight: bold; color: #1a1a1a; }
+  .edu-school { font-size: 8.5pt; color: #777; }
+  .edu-year { font-size: 8pt; color: #999; }
+
+  /* Languages */
+  .lang-row { font-size: 8.5pt; color: #555; margin-bottom: 1mm; }
+  .lang-level { color: #999; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-left">
+      <div class="name">{{NAME}}</div>
+      <div class="role-label">{{ROLE_LABEL}}</div>
+    </div>
+    <div class="header-right">{{CONTACT_BLOCK}}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Summary</div>
+    <div class="summary">{{SUMMARY}}</div>
+  </div>
+
+  {{ACHIEVEMENTS_BLOCK}}
+  {{SKILLS_BLOCK}}
+
+  <div class="section">
+    <div class="section-title">Experience</div>
+    {{EXPERIENCE_BLOCK}}
+  </div>
+
+  {{EDUCATION_BLOCK}}
+  {{LANGUAGES_BLOCK}}
+  {{EXTRA_SECTIONS}}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page { width: 210mm; min-height: 297mm; padding: 0; }
+
+  /* TOP BANNER */
+  .banner {
+    background: #1A237E;
+    padding: 10mm 14mm 8mm;
+  }
+
+  .name {
+    font-size: 22pt;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .role-label {
+    font-size: 9pt;
+    color: #9FA8DA;
+    margin-top: 2mm;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-row {
+    font-size: 8pt;
+    color: #C5CAE9;
+    margin-top: 4mm;
+    line-height: 1.6;
+  }
+
+  /* METRICS BAR — proper HTML table, no display:table tricks */
+  table.metrics-bar {
+    background: #283593;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 5mm;
+  }
+
+  table.metrics-bar td {
+    text-align: center;
+    padding: 4mm 3mm;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    vertical-align: middle;
+    width: 25%;
+  }
+
+  table.metrics-bar td:last-child { border-right: none; }
+
+  .metric-number {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    line-height: 1.3;
+    word-wrap: break-word;
+  }
+
+  .metric-label {
+    font-size: 6pt;
+    color: #9FA8DA;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1mm;
+    display: block;
+    word-wrap: break-word;
+    line-height: 1.3;
+  }
+
+  /* CONTENT */
+  .content { padding: 0 14mm 12mm; }
+
+  .section { margin-bottom: 5.5mm; }
+
+  .section-title {
+    font-size: 7pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1A237E;
+    border-bottom: 2px solid #1A237E;
+    padding-bottom: 1.5mm;
+    margin-bottom: 3mm;
+  }
+
+  .summary { font-size: 9pt; color: #333; line-height: 1.7; }
+
+  /* Skills */
+  .skills-table { width: 100%; border-collapse: collapse; }
+  .skills-table td { vertical-align: top; padding: 1mm 2mm 1mm 0; font-size: 8.5pt; width: 50%; }
+  .skill-group-label { font-weight: bold; color: #1A237E; font-size: 8pt; }
+  .skill-values { color: #444; }
+
+  /* Achievements — proper HTML table, no truncation */
+  table.achievements-table { width: 100%; border-collapse: collapse; margin-bottom: 3mm; }
+  table.achievements-table td { width: 50%; vertical-align: top; padding: 2mm 2mm 2mm 0; }
+
+  .achievement-item {
+    border-left: 3px solid #1A237E;
+    padding: 2mm 3mm;
+    background: #f3f4fd;
+    font-size: 8.5pt;
+    line-height: 1.5;
+    margin-right: 2mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1A237E;
+    margin-bottom: 1mm;
+  }
+
+  .achievement-item p {
+    color: #333;
+    word-wrap: break-word;
+  }
+
+  /* Experience */
+  .job { margin-bottom: 4.5mm; padding-bottom: 4mm; border-bottom: 1px solid #e8e8f5; }
+  .job:last-child { border-bottom: none; }
+
+  table.job-header-table { width: 100%; border-collapse: collapse; margin-bottom: 0.5mm; }
+  table.job-header-table td { vertical-align: top; padding: 0; }
+
+  .job-title { font-size: 10.5pt; font-weight: bold; color: #1A237E; }
+  .job-date { font-size: 7.5pt; color: #1A237E; text-align: right; white-space: nowrap; font-weight: bold; }
+  .job-org { font-size: 8.5pt; color: #555; margin-bottom: 2mm; font-style: italic; }
+
+  .job ul { list-style: none; padding-left: 0; }
+  .job ul li {
+    font-size: 8.5pt; color: #333; line-height: 1.55;
+    margin-bottom: 1.2mm; padding-left: 4mm; text-indent: -4mm;
+  }
+  .job ul li::before { content: "\2605  "; color: #1A237E; font-size: 6.5pt; }
+
+  /* Education */
+  table.edu-header-table { width: 100%; border-collapse: collapse; margin-bottom: 3mm; }
+  table.edu-header-table td { vertical-align: top; padding: 0; }
+  .edu-degree { font-size: 9.5pt; font-weight: bold; color: #1a1a1a; }
+  .edu-school { font-size: 8.5pt; color: #555; font-style: italic; }
+  .edu-year { font-size: 7.5pt; color: #1A237E; font-weight: bold; text-align: right; white-space: nowrap; }
+
+  /* Languages */
+  .lang-row { font-size: 8.5pt; color: #333; margin-bottom: 1mm; }
+  .lang-level { color: #1A237E; font-size: 7.5pt; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="banner">
+    <div class="name">{{NAME}}</div>
+    <div class="role-label">{{ROLE_LABEL}}</div>
+    <div class="contact-row">{{CONTACT_ROW}}</div>
+  </div>
+
+  {{METRICS_BAR}}
+
+  <div class="content">
+
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <div class="summary">{{SUMMARY}}</div>
+    </div>
+
+    {{ACHIEVEMENTS_BLOCK}}
+    {{SKILLS_BLOCK}}
+
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+      {{EXPERIENCE_BLOCK}}
+    </div>
+
+    {{EDUCATION_BLOCK}}
+    {{LANGUAGES_BLOCK}}
+    {{EXTRA_SECTIONS}}
+
+  </div>
+</div>
+</body>
+</html>

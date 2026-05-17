@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    display: table;
+    table-layout: fixed;
+  }
+
+  /* LEFT ACCENT SIDEBAR — narrow, teal */
+  td.sidebar-cell {
+    width: 5mm;
+    background: #00695C;
+    vertical-align: top;
+  }
+
+  /* MAIN CONTENT */
+  td.main-cell {
+    vertical-align: top;
+    padding: 12mm 14mm 12mm 10mm;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 2px solid #00695C;
+    padding-bottom: 5mm;
+    margin-bottom: 5mm;
+  }
+
+  .name {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #00695C;
+    letter-spacing: -0.3px;
+    line-height: 1.1;
+  }
+
+  .role-label {
+    font-size: 9pt;
+    color: #555;
+    margin-top: 1.5mm;
+    letter-spacing: 0.3px;
+  }
+
+  .contact-row {
+    font-size: 8pt;
+    color: #444;
+    margin-top: 3mm;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 5.5mm; }
+
+  .section-title {
+    font-size: 7pt;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #00695C;
+    padding: 1.5mm 3mm;
+    margin-bottom: 3mm;
+    display: block;
+  }
+
+  /* SUMMARY */
+  .summary {
+    font-size: 9pt;
+    color: #333;
+    line-height: 1.7;
+  }
+
+  /* IMPACT METRICS — key NGO achievements shown as stat blocks */
+  .impact-grid {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2mm;
+  }
+
+  .impact-cell {
+    display: table-cell;
+    width: 25%;
+    text-align: center;
+    padding: 3mm 2mm;
+    border: 1px solid #e0f2f1;
+    background: #f1f8f7;
+  }
+
+  .impact-number {
+    font-size: 16pt;
+    font-weight: bold;
+    color: #00695C;
+    display: block;
+    line-height: 1;
+  }
+
+  .impact-label {
+    font-size: 7pt;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1mm;
+    display: block;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievements-table { width: 100%; border-collapse: collapse; }
+  .achievements-table td { width: 50%; vertical-align: top; padding: 2mm 2mm 2mm 0; }
+
+  .achievement-item {
+    border-left: 3px solid #00695C;
+    padding: 1.5mm 3mm;
+    background: #f1f8f7;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    margin-right: 2mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #00695C;
+    margin-bottom: 0.5mm;
+  }
+
+  /* SKILLS */
+  .skills-table { width: 100%; border-collapse: collapse; }
+  .skills-table td { vertical-align: top; padding: 1mm 2mm 1mm 0; font-size: 8.5pt; width: 50%; }
+  .skill-group-label { font-weight: bold; color: #00695C; font-size: 8pt; }
+  .skill-values { color: #444; }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 4.5mm; padding-bottom: 4mm; border-bottom: 1px solid #e8f5e9; }
+  .job:last-child { border-bottom: none; }
+
+  .job-header-table { width: 100%; border-collapse: collapse; }
+  .job-header-table td { vertical-align: top; padding: 0; }
+
+  .job-title { font-size: 10.5pt; font-weight: bold; color: #1a1a1a; }
+  .job-date { font-size: 7.5pt; color: #00695C; text-align: right; white-space: nowrap; font-weight: bold; }
+  .job-org { font-size: 8.5pt; color: #555; margin-bottom: 2mm; font-style: italic; }
+
+  .job ul { list-style: none; padding-left: 0; }
+  .job ul li {
+    font-size: 8.5pt; color: #333; line-height: 1.55;
+    margin-bottom: 1.2mm; padding-left: 4mm; text-indent: -4mm;
+  }
+  .job ul li::before { content: "▸  "; color: #00695C; font-size: 7.5pt; }
+
+  /* EDUCATION */
+  .edu-block { margin-bottom: 3mm; }
+  .edu-degree { font-size: 9.5pt; font-weight: bold; color: #1a1a1a; }
+  .edu-school { font-size: 8.5pt; color: #555; font-style: italic; }
+  .edu-year { font-size: 7.5pt; color: #888; }
+
+  /* LANGUAGES */
+  .lang-row { font-size: 8.5pt; color: #333; margin-bottom: 1mm; }
+  .lang-level { color: #00695C; font-size: 7.5pt; }
+</style>
+</head>
+<body>
+<table class="page"><tr>
+
+  <td class="sidebar-cell"></td>
+
+  <td class="main-cell">
+
+    <div class="header">
+      <div class="name">{{NAME}}</div>
+      <div class="role-label">{{ROLE_LABEL}}</div>
+      <div class="contact-row">{{CONTACT_ROW}}</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Professional Summary</div>
+      <div class="summary">{{SUMMARY}}</div>
+    </div>
+
+    {{ACHIEVEMENTS_BLOCK}}
+    {{SKILLS_BLOCK}}
+
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+      {{EXPERIENCE_BLOCK}}
+    </div>
+
+    {{EDUCATION_BLOCK}}
+    {{LANGUAGES_BLOCK}}
+    {{EXTRA_SECTIONS}}
+
+  </td>
+</tr></table>
+</body>
+</html>

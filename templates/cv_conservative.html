@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10pt;
+    color: #000;
+    background: #fff;
+    line-height: 1.5;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 15mm 16mm 15mm 16mm;
+  }
+
+  /* HEADER — centred, formal */
+  .header {
+    text-align: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5mm;
+    margin-bottom: 5mm;
+  }
+
+  .name {
+    font-size: 22pt;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .role-label {
+    font-size: 10pt;
+    color: #333;
+    margin-top: 1.5mm;
+    font-style: italic;
+  }
+
+  .contact-row {
+    font-size: 8.5pt;
+    color: #333;
+    margin-top: 3mm;
+  }
+
+  /* SECTION */
+  .section { margin-bottom: 5mm; }
+
+  .section-title {
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-bottom: 1.5px solid #000;
+    padding-bottom: 1mm;
+    margin-bottom: 3mm;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  /* SUMMARY */
+  .summary {
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    line-height: 1.65;
+    text-align: justify;
+  }
+
+  /* SKILLS — two column table */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .skills-table td {
+    vertical-align: top;
+    padding: 1mm 2mm 1mm 0;
+    font-size: 9pt;
+    width: 50%;
+  }
+
+  .skill-group-label {
+    font-weight: bold;
+    color: #000;
+  }
+
+  .skill-values { color: #222; }
+
+  /* ACHIEVEMENTS */
+  .achievements-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .achievements-table td {
+    width: 50%;
+    vertical-align: top;
+    padding: 2mm 3mm 2mm 0;
+  }
+
+  .achievement-item {
+    border-left: 2px solid #000;
+    padding: 1.5mm 3mm;
+    background: #f9f9f9;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    margin-right: 2mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5mm;
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 4mm; padding-bottom: 3.5mm; border-bottom: 1px solid #ddd; }
+  .job:last-child { border-bottom: none; }
+
+  .job-header-table { width: 100%; border-collapse: collapse; }
+  .job-header-table td { vertical-align: top; padding: 0; }
+
+  .job-title {
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  .job-date {
+    font-size: 8.5pt;
+    color: #333;
+    text-align: right;
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  .job-org {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 2mm;
+    font-style: italic;
+  }
+
+  .job ul { list-style: none; padding-left: 0; }
+
+  .job ul li {
+    font-size: 9pt;
+    color: #222;
+    line-height: 1.55;
+    margin-bottom: 1.2mm;
+    padding-left: 5mm;
+    text-indent: -5mm;
+    text-align: justify;
+  }
+
+  .job ul li::before { content: "• "; color: #000; }
+
+  /* EDUCATION */
+  .edu-block { margin-bottom: 3.5mm; }
+  .edu-degree { font-size: 10pt; font-weight: bold; color: #000; }
+  .edu-school { font-size: 9pt; color: #333; font-style: italic; }
+  .edu-year { font-size: 8.5pt; color: #555; }
+
+  /* LANGUAGES */
+  .lang-row { font-size: 9pt; color: #222; margin-bottom: 1mm; }
+  .lang-level { color: #555; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="name">{{NAME}}</div>
+    <div class="role-label">{{ROLE_LABEL}}</div>
+    <div class="contact-row">{{CONTACT_ROW}}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary">{{SUMMARY}}</div>
+  </div>
+
+  {{ACHIEVEMENTS_BLOCK}}
+  {{SKILLS_BLOCK}}
+
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    {{EXPERIENCE_BLOCK}}
+  </div>
+
+  {{EDUCATION_BLOCK}}
+  {{LANGUAGES_BLOCK}}
+  {{EXTRA_SECTIONS}}
+
+</div>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Georgia, serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm 14mm 12mm 14mm;
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 3px solid #1a1a1a;
+    padding-bottom: 5mm;
+    margin-bottom: 5mm;
+  }
+
+  .name {
+    font-size: 26pt;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    color: #1a1a1a;
+    line-height: 1.1;
+    font-family: Georgia, serif;
+  }
+
+  .role-label {
+    font-size: 9pt;
+    color: #555;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-top: 1.5mm;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-row {
+    margin-top: 3mm;
+    font-size: 8pt;
+    color: #444;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .contact-row span {
+    margin-right: 5mm;
+  }
+
+  .contact-dot {
+    color: #bbb;
+    margin-right: 5mm;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 5mm;
+  }
+
+  .section-title {
+    font-size: 7pt;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #fff;
+    background: #1a1a1a;
+    padding: 1.5mm 3mm;
+    margin-bottom: 3mm;
+    display: block;
+  }
+
+  /* SUMMARY */
+  .summary {
+    font-size: 9pt;
+    color: #333;
+    line-height: 1.7;
+    font-family: Georgia, serif;
+  }
+
+  /* SKILLS */
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .skills-table td {
+    vertical-align: top;
+    padding: 1mm 2mm 1mm 0;
+    font-size: 8.5pt;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 50%;
+  }
+
+  .skill-group-label {
+    font-weight: bold;
+    color: #1a1a1a;
+    font-size: 8pt;
+    min-width: 28mm;
+    display: inline-block;
+  }
+
+  .skill-values {
+    color: #444;
+  }
+
+  /* ACHIEVEMENTS */
+  .achievement-row {
+    display: table;
+    width: 100%;
+    margin-bottom: 2mm;
+  }
+
+  .achievements-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .achievements-table td {
+    width: 50%;
+    vertical-align: top;
+    padding: 2mm 2mm 2mm 0;
+  }
+
+  .achievement-item {
+    border-left: 3px solid #1a1a1a;
+    padding: 1.5mm 3mm;
+    background: #f7f7f7;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    line-height: 1.4;
+    margin-right: 2mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #1a1a1a;
+    margin-bottom: 0.5mm;
+  }
+
+  .achievement-item p {
+    color: #444;
+  }
+
+  /* EXPERIENCE */
+  .job {
+    margin-bottom: 4.5mm;
+    padding-bottom: 4mm;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .job:last-child {
+    border-bottom: none;
+  }
+
+  .job-header-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .job-header-table td {
+    vertical-align: top;
+    padding: 0;
+  }
+
+  .job-title {
+    font-size: 10.5pt;
+    font-weight: bold;
+    color: #1a1a1a;
+    font-family: Georgia, serif;
+  }
+
+  .job-date {
+    font-size: 7.5pt;
+    color: #666;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: right;
+    white-space: nowrap;
+    padding-top: 1mm;
+  }
+
+  .job-org {
+    font-size: 8.5pt;
+    color: #555;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-bottom: 2mm;
+    font-style: italic;
+  }
+
+  .job ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .job ul li {
+    font-size: 8.5pt;
+    color: #333;
+    line-height: 1.55;
+    margin-bottom: 1.2mm;
+    padding-left: 4mm;
+    text-indent: -4mm;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .job ul li::before {
+    content: '— ';
+    color: #999;
+    font-size: 8pt;
+  }
+
+  /* EDUCATION */
+  .edu-block {
+    margin-bottom: 3mm;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  .edu-degree {
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #1a1a1a;
+  }
+
+  .edu-school {
+    font-size: 8.5pt;
+    color: #555;
+    font-style: italic;
+  }
+
+  .edu-year {
+    font-size: 7.5pt;
+    color: #888;
+  }
+
+  /* LANGUAGES */
+  .lang-row {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 8.5pt;
+    color: #333;
+    margin-bottom: 1mm;
+  }
+
+  .lang-level {
+    color: #888;
+    font-size: 7.5pt;
+  }
+
+  /* TWO COL LAYOUT FOR SKILLS/LANGUAGES */
+  .two-col-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .two-col-table td {
+    vertical-align: top;
+    width: 50%;
+    padding-right: 5mm;
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="name">{{NAME}}</div>
+    <div class="role-label">{{ROLE_LABEL}}</div>
+    <div class="contact-row">{{CONTACT_ROW}}</div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <div class="summary">{{SUMMARY}}</div>
+  </div>
+
+  <!-- KEY STRENGTHS -->
+  {{ACHIEVEMENTS_BLOCK}}
+
+  <!-- SKILLS -->
+  {{SKILLS_BLOCK}}
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Professional Experience</div>
+    {{EXPERIENCE_BLOCK}}
+  </div>
+
+  <!-- EDUCATION -->
+  {{EDUCATION_BLOCK}}
+
+  <!-- LANGUAGES -->
+  {{LANGUAGES_BLOCK}}
+
+  {{EXTRA_SECTIONS}}
+
+</div>
+</body>
+</html>

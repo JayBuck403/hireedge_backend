@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #1a1a1a;
+    background: #fff;
+    line-height: 1.55;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    display: table;
+    table-layout: fixed;
+  }
+
+  /* SIDEBAR — warm charcoal */
+  td.sidebar-cell {
+    width: 70mm;
+    background: #212121;
+    vertical-align: top;
+    padding: 12mm 8mm 12mm 9mm;
+  }
+
+  td.main-cell {
+    vertical-align: top;
+    padding: 12mm 12mm 12mm 10mm;
+  }
+
+  /* SIDEBAR */
+  .s-name {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 1.5mm;
+    letter-spacing: -0.3px;
+  }
+
+  .s-role {
+    font-size: 8pt;
+    color: #FFD54F;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6mm;
+    padding-bottom: 5mm;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .s-section-title {
+    font-size: 6.5pt;
+    font-weight: bold;
+    color: #FFD54F;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3mm;
+    padding-bottom: 1.5mm;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .s-section { margin-bottom: 5.5mm; }
+
+  .s-contact { font-size: 8pt; color: #BDBDBD; margin-bottom: 2mm; line-height: 1.4; }
+  .s-contact span { display: block; font-size: 6.5pt; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.5mm; }
+
+  /* Expertise pills */
+  .s-pill {
+    display: inline-block;
+    background: rgba(255,213,79,0.12);
+    border: 1px solid rgba(255,213,79,0.25);
+    color: #FFD54F;
+    font-size: 7pt;
+    padding: 1.5mm 3mm;
+    border-radius: 100px;
+    margin: 0 1.5mm 2mm 0;
+    font-weight: bold;
+  }
+
+  .s-skill-group { margin-bottom: 3mm; }
+  .s-skill-group-label { font-size: 7pt; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 1.5mm; font-weight: bold; }
+
+  .s-edu-block { margin-bottom: 3.5mm; }
+  .s-edu-degree { font-size: 8.5pt; font-weight: bold; color: #fff; margin-bottom: 0.5mm; }
+  .s-edu-school { font-size: 7.5pt; color: #9E9E9E; font-style: italic; }
+  .s-edu-year { font-size: 7pt; color: rgba(255,255,255,0.35); }
+
+  .s-lang { font-size: 8pt; color: #BDBDBD; margin-bottom: 1.5mm; }
+  .s-lang-level { font-size: 7pt; color: #FFD54F; }
+
+  /* MAIN */
+  .section { margin-bottom: 5.5mm; }
+
+  .section-title {
+    font-size: 6.5pt;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #212121;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: #FFD54F;
+  }
+
+  .summary { font-size: 9pt; color: #333; line-height: 1.7; }
+
+  /* Achievements */
+  .achievements-table { width: 100%; border-collapse: collapse; }
+  .achievements-table td { width: 50%; vertical-align: top; padding: 2mm 2mm 2mm 0; }
+
+  .achievement-item {
+    border-left: 3px solid #FFD54F;
+    padding: 2mm 3mm;
+    background: #fffdf0;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    margin-right: 2mm;
+  }
+
+  .achievement-item strong {
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #212121;
+    margin-bottom: 0.5mm;
+  }
+
+  /* Experience */
+  .job { margin-bottom: 4.5mm; padding-bottom: 4mm; border-bottom: 1px solid #f0f0f0; }
+  .job:last-child { border-bottom: none; }
+
+  .job-header-table { width: 100%; border-collapse: collapse; }
+  .job-header-table td { vertical-align: top; padding: 0; }
+
+  .job-title { font-size: 10.5pt; font-weight: bold; color: #212121; }
+  .job-date { font-size: 7.5pt; color: #888; text-align: right; white-space: nowrap; }
+  .job-org { font-size: 8.5pt; color: #555; margin-bottom: 2mm; font-style: italic; }
+
+  .job ul { list-style: none; padding-left: 0; }
+  .job ul li {
+    font-size: 8.5pt; color: #333; line-height: 1.55;
+    margin-bottom: 1.2mm; padding-left: 4mm; text-indent: -4mm;
+  }
+  .job ul li::before { content: "— "; color: #FFD54F; font-weight: bold; }
+</style>
+</head>
+<body>
+<table class="page"><tr>
+
+  <td class="sidebar-cell">
+    <div class="s-name">{{NAME}}</div>
+    <div class="s-role">{{ROLE_LABEL}}</div>
+
+    <div class="s-section">
+      <div class="s-section-title">Contact</div>
+      <div class="s-contact"><span>Email</span>{{EMAIL}}</div>
+      <div class="s-contact"><span>Phone</span>{{PHONE}}</div>
+      <div class="s-contact"><span>Location</span>{{LOCATION}}</div>
+      {{EXTRA_CONTACT}}
+    </div>
+
+    <div class="s-section">
+      <div class="s-section-title">Expertise</div>
+      {{SKILLS_SIDEBAR}}
+    </div>
+
+    <div class="s-section">
+      <div class="s-section-title">Education</div>
+      {{EDUCATION_SIDEBAR}}
+    </div>
+
+    {{LANGUAGES_SIDEBAR}}
+  </td>
+
+  <td class="main-cell">
+    <div class="section">
+      <div class="section-title">Profile</div>
+      <div class="summary">{{SUMMARY}}</div>
+    </div>
+
+    {{ACHIEVEMENTS_BLOCK}}
+
+    <div class="section">
+      <div class="section-title">Experience</div>
+      {{EXPERIENCE_BLOCK}}
+    </div>
+
+    {{EXTRA_SECTIONS}}
+  </td>
+
+</tr></table>
+</body>
+</html>
