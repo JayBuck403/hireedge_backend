@@ -7,3 +7,4 @@ weasyprint==68.1
 python-dotenv==1.2.2
 firebase-admin==7.4.0
 pydantic==2.13.3
+PyPDF2==3.0.1
